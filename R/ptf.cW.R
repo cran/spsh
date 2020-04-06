@@ -1,3 +1,23 @@
+#' Title Corrected Weynants et al. (2009) Pedotransfer Function
+#'
+#' @param CLAY A vector of \code{n} elements with soil clay content (particle diameters <= 2 x 10e-6 m), in percent [0, 100]).
+#' @param SAND A vector of \code{n} elements with soil sand content (particle diameters < 2 mm and > 50 x 10e-6 m), in percent [0, 100]).
+#' @param BD A vector of \code{n} elements with soil bulk density (g/cm3).
+#' @param OC A vector of \code{n} elements with soil organic carbon content, in percent [0, 100].
+#'
+#' @return Pedotransfer function returns the van Genuchten - Mualem model parameters given \code{CLAY}, \code{SAND}, \code{BD}, and \code{OC}.
+#' The correction of the original paper presented by \insertCite{Weynants.2009}{spsh}, were made by \insertCite{Weihermuller.2017}{spsh}, which is implemented.
+#' @note The PTF is not suitable for predicting the hydraulic conductivity curve at pressured heads > -6 cm \insertCite{Weynants.2009}{spsh}.
+#' @references 
+#' \insertRef{Weynants.2009}{spsh}
+#' \insertRef{Weihermuller.2017}{spsh}
+#' @author Melanie Weynants, \email{mweynants@gmail.com}
+#' @author Tobias KD Weber , \email{tobias.weber@uni-hohenheim.de}
+#' 
+#' @examples
+#' result <- ptf.cW(CLAY = .4, SAND = .4, BD = 1.6, OC = .5)
+#' 
+#' @export
 ptf.cW <- function(CLAY, SAND, BD, OC) {
           
           #
